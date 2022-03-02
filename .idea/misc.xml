@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Andrew/AndroidStudioProjects/Personal Projects/ShopMyList/app/src/main/res/drawable-anydpi/ic_delete.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Personal Projects/ShopMyList/app/src/main/res/layout/activity_main.xml" value="0.33559782608695654" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Personal Projects/ShopMyList/app/src/main/res/layout/dialog_add_shopping_item.xml" value="0.33559782608695654" />
         <entry key="..\:/Users/Andrew/AndroidStudioProjects/Personal Projects/ShopMyList/app/src/main/res/layout/shopping_item.xml" value="0.33559782608695654" />
       </map>
     </option>
