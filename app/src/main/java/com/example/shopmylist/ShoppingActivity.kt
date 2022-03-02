@@ -14,17 +14,25 @@ import com.example.shopmylist.ui.AddShoppingItemDialog
 import com.example.shopmylist.ui.shoppinglist.ShoppingViewModel
 import com.example.shopmylist.ui.shoppinglist.ShoppingViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 
-class ShoppingActivity : AppCompatActivity() {
+// (4) Kodein
+class ShoppingActivity : AppCompatActivity(), KodeinAware {
+    // (5) Kodein
+    override val kodein by kodein()
+    private val factory: ShoppingViewModelFactory by instance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // Bad practice bc instantiating all of these in this activity, makes it dependent on this activity if there are any changes to this activity
-        // Better to have a global place to instantiate objects and pass them from there (Dependency Injection)
-        val database = ShoppingDatabase(this)
-        val repository = ShoppingRepository(database)
-        val factory = ShoppingViewModelFactory(repository)
+        // (6) Kodein - delete below and add in ShoppingApplication to Manifest
+//        // Bad practice bc instantiating all of these in this activity, makes it dependent on this activity if there are any changes to this activity
+//        // Better to have a global place to instantiate objects and pass them from there (Dependency Injection)
+//        val database = ShoppingDatabase(this)
+//        val repository = ShoppingRepository(database)
+//        val factory = ShoppingViewModelFactory(repository)
 
         val viewModel = ViewModelProvider(this, factory).get(ShoppingViewModel::class.java)
 
