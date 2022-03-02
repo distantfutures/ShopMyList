@@ -1,4 +1,4 @@
-package com.example.shopmylist.database
+package com.example.shopmylist.data.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
