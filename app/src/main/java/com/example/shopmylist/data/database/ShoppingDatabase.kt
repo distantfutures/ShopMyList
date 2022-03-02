@@ -13,27 +13,19 @@ abstract class ShoppingDatabase: RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: ShoppingDatabase? = null
+        private var instance: ShoppingDatabase? = null
+        private val LOCK = Any()
 
-        fun getInstance(context: Context): ShoppingDatabase {
-
-            synchronized(this) {
-                var instance = INSTANCE
-                // If instance is `null` make a new database instance.
-                if (instance == null) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        ShoppingDatabase::class.java,
-                        "discharge_history_database"
-                    )
-                        .fallbackToDestructiveMigration()
-                        .build()
-                    // Assign INSTANCE to the newly created database.
-                    INSTANCE = instance
-                }
-                // Return instance; smart cast to be non-null.
-                return instance
+        operator fun invoke(context: Context) = instance
+            ?: synchronized(LOCK) {
+                instance
+                    ?: createDatabase(
+                        context
+                    ).also { instance = it }
             }
-        }
+
+        private fun createDatabase(context: Context) =
+            Room.databaseBuilder(context.applicationContext,
+                ShoppingDatabase::class.java, "ShoppingDB.db").build()
     }
 }
