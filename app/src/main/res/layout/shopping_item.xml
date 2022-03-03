@@ -6,6 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/imageViewMinus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="@dimen/margin_small"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPlus"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_minus" />
+
+    <ImageView
+        android:id="@+id/imageViewPlus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="@dimen/margin_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_plus" />
+
     <TextView
         android:id="@+id/textViewAmount"
         android:layout_width="wrap_content"
@@ -13,8 +31,8 @@
         android:layout_margin="@dimen/margin_small"
         android:text="TextView"
         android:textSize="@dimen/text_size_med"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewName"
+        app:layout_constraintStart_toEndOf="@+id/imageViewMinus" />
 
     <TextView
         android:id="@+id/textViewName"
@@ -35,21 +53,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewName"
         app:srcCompat="@drawable/ic_delete" />
 
-    <ImageView
-        android:id="@+id/imageViewMinus"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="@dimen/margin_small"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPlus"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAmount"
-        app:srcCompat="@drawable/ic_minus" />
-
-    <ImageView
-        android:id="@+id/imageViewPlus"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="@dimen/margin_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAmount"
-        app:srcCompat="@drawable/ic_plus" />
 </androidx.constraintlayout.widget.ConstraintLayout>
