@@ -26,9 +26,6 @@ class ShoppingItemAdapter(
         holder.itemView.textViewName.text = currentItem.name
         holder.itemView.textViewAmount.text = currentItem.amount.toString()
 
-        holder.itemView.imageViewDelete.setOnClickListener {
-            viewModel.delete(currentItem)
-        }
         holder.itemView.imageViewPlus.setOnClickListener {
             currentItem.amount++
             viewModel.upsert(currentItem)
